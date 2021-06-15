@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SearchBox from "./components/SearchBox";
+import SearchResults from './components/SearchResults';
 import data from '../../data/users.json'
 import './style.css'
 
@@ -22,6 +23,7 @@ export default function Search() {
 
     // para guardar el value del input que viene de la funcion onSearch y realizar la busqueda
     const handleSearchClick = (searchText) => {
+        setIsAttop(true);
         // cambiar el texto que viene del input a minusculas para realizar la comparacion
         const searchTextMinus = searchText.toLowerCase()
         // validar si existe la data
@@ -44,6 +46,7 @@ export default function Search() {
                 onSearch={handleSearchClick}
                 onClose={handleCloseSearch}
             />
+            <SearchResults results={results} isSerching={isAtop} />
         </div>
     )
 }

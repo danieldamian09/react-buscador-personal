@@ -23,8 +23,8 @@ export default function SearchBox({ onSearch, onClose }) {
                         onChange={({ target: { value } }) => setSearchText(value)}
                     />
                 </label>
-                <button onClick={() => onSearch(searchText)}>Buscar</button>
-                <button onClick={handleSearchClick}>Cerrar</button>
+                <button onClick={() => onSearch(searchText)} disabled={!searchText.length}>Buscar</button>
+                <button onClick={handleSearchClick} disabled={!searchText.length}>Cerrar</button>
             </div>
         </div>
     )
